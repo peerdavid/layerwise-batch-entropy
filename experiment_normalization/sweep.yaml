@@ -1,0 +1,22 @@
+program: train.py
+method: grid
+project: "Layerwise Batch Entropy"
+entity: keulen
+# entity: uibk_iis
+name: "Experiment Normalization 50 - 500"
+description: "Training of 50, 100, 250 and 500 layer FNN with various Normalization layers"
+metric:
+  name: test/accuracy
+  goal: maximize
+parameters:
+  seed:
+    # values: [1119, 4635, 14184, 15543, 14068]
+    value: 44
+  epochs:
+    value: 500
+  learning_rate:
+    values: [1e-4, 1e-5, 5e-6]
+  depth:
+    values: [50, 100, 250, 500]
+  norm:
+    values: ["BatchNorm", "LayerNorm", "WeightNorm", "SELU", "None"]

@@ -1,0 +1,12 @@
+torch
+torchvision
+scipy
+tqdm
+sklearn
+wandb
+torch-optimizer
+optuna
+pandas
+matplotlib
+transformers
+datasets

@@ -1,0 +1,11 @@
+partition: some_partition
+account: slurm_account
+job-name: example
+mail-type: END,FAIL
+mail-user: first.lastname@host.com
+o: /path/to/log_dir/slurm.%N.%j.out
+e: /path/to/log_dir/slurm.%N.%j.err
+nodes: 1
+gres: gpu:4
+ntasks-per-node: 4
+cpus-per-task: 7

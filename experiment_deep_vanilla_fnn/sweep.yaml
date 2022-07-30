@@ -1,0 +1,28 @@
+program: train.py
+method: grid
+project: "Layerwise Batch Entropy"
+entity: YOUR_ENTITY
+name: "Experiment FNN - LBE"
+description: "Training of FNN with/without LBE"
+metric:
+  name: test/accuracy
+  goal: maximize
+parameters:
+  arch:
+    values: ["FNN-DEEP"]
+  seed:
+    values: [41, 42, 43, 44, 45]
+  lbe_beta:
+    values: [1e-1]
+  lbe_alpha:
+    values: [2.0]
+  lbe_alpha_min:
+    values: [0.2]
+  batch_size:
+    values: [128]
+  depth:
+    values: [500]
+  learning_rate:
+    values: [1e-6]
+  epochs:
+    values: [1000]

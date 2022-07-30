@@ -1,0 +1,36 @@
+method: grid
+program: run_glue.py
+project: "Layerwise Batch Entropy"
+entity: YOUR_ENTITY
+name: "Experiment Transformer"
+parameters:
+  task_name:
+    values: ["rte", "mrpc", "cola"]
+  model_name_or_path:
+    values: ["bert-base-uncased", "bert-large-uncased"]
+  seed:
+    values: [41,42,43,44,45]
+  lbe_alpha:
+    values: [0.0, 0.2, 0.3, 0.5, 0.8]
+  lbe_beta:
+    values: [0.0, 0.005, 0.01, 0.05]
+  learning_rate:
+    values: [3e-5, 1e-5, 5e-5]
+command:
+  - ${env}
+  - ${interpreter}
+  - ${program}
+  - ${args}
+  - --do_train
+  - --do_eval
+  - --eval_steps=150
+  - --evaluation_strategy=steps
+  - --max_seq_length=128
+  - --num_train_epochs=5
+  - --overwrite_output_dir
+  - --output_dir=tmp/glue
+  - --overwrite_output_dir
+  - --per_device_train_batch_size=32
+  - --per_device_eval_batch_size=32
+  - --save_total_limit=2
+  - --dataloader_drop_last

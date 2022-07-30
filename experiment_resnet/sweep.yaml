@@ -1,0 +1,20 @@
+program: train.py
+method: grid
+project: "Layerwise Batch Entropy"
+entity: YOUR_ENTITY
+name: "Experiment ResNet"
+description: "Training of ResNet with/without LBE"
+metric:
+  name: test/accuracy
+  goal: maximize
+parameters:
+  dataset:
+    values: ["cifar100", "mnist", "fashionmnist"]
+  seed:
+    values: [41, 42, 43, 44, 45]
+  lbe_beta:
+    values: [0.0, 0.001, 0.005, 0.01]
+  lbe_alpha:
+    values: [0.0, 0.5, 1.0, 1.5]
+  depth:
+    values: [74]
